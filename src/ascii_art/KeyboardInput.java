@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Handles Keyboard input
- * Author : Yonghao Lee
+ * Author : Supplied
  */
 class KeyboardInput
 {

@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  * https://dzone.com/articles/ascii-art-generator-java
  * Adaptations made by Dan Nirel and again by Rachel Behar.
  * The class converts characters to a binary "image" (2D array of booleans).
- * Author : Omer Cohen
+ * Author : Supplied
  */
 public class CharConverter {
     private static final double X_OFFSET_FACTOR = 0.2;
