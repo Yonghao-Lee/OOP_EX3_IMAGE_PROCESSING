@@ -97,10 +97,8 @@ public class SubImgCharMatcher {
         double brightnessC = calculateRawBrightness(c);
 
         if (this.brightnessMap.containsKey(brightnessC)) {
-            // FIXED: 'brightness' -> 'brightnessC'
             TreeSet<Character> charsAtBrightness = brightnessMap.get(brightnessC);
 
-            // FIXED: Removed invalid .get() call
             charsAtBrightness.remove(c);
 
             // If no more char is left, remove the key
