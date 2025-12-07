@@ -1,5 +1,7 @@
-/*
-A class representing a collection of image processing algorithms.
+/**
+ * A utility class providing static methods for image processing operations.
+ * This includes padding images to power-of-2 dimensions, dividing images into sub-squares,
+ * and calculating brightness values.
  */
 public class ImageProcessing {
     private ImageProcessing() {
@@ -50,14 +52,7 @@ public class ImageProcessing {
 
         return new Image(newPixelArray, newWidth, newHeight);
     }
-
-    /**
-     * Divides the image into square sub-images based on the resolution.
-     * @param image The (padded) image to divide.
-     * @param resolution The number of sub-images per row.
-     * @return An array of Image objects representing the sub-squares.
-     */
-
+    
     /**
      * Divides the image into square sub-images based on the resolution.
      * @param image The (padded) image to divide.
