@@ -16,6 +16,7 @@ public class SubImgCharMatcher {
      * Value: A TreeSet of characters with that specific brightness, sorted by ASCII value.
      */
     private final TreeMap<Double, TreeSet<Character>> brightnessMap;
+    private boolean reverse = false;
 
     /**
      * Constructs a new matcher with the given set of allowed characters.
@@ -54,8 +55,13 @@ public class SubImgCharMatcher {
             return this.brightnessMap.get(minBrightness).first();
         }
 
+        if (reverse) {
+            brightness = 1-brightness;
+        }
+
         // Find the original target raw brightness
         double targetRawBrightness = brightness * (maxBrightness - minBrightness) + minBrightness;
+
 
         // Find the closest raw brightnesses in the map
         Double floorKey = brightnessMap.floorKey(targetRawBrightness);
@@ -66,12 +72,12 @@ public class SubImgCharMatcher {
         if (ceilingKey == null) return brightnessMap.get(floorKey).first();
 
         // Compare the 2 bounds to find the lower one
-        // FIXED: Typo 'floorDistacen' -> 'floorDistance'
         double floorDistance = Math.abs(floorKey - targetRawBrightness);
         double ceilingDistance = Math.abs(ceilingKey - targetRawBrightness);
 
-        return (floorDistance <= ceilingDistance) ? brightnessMap.get(floorKey).first() :
-                brightnessMap.get(ceilingKey).first();
+        double closestBrightness = (floorDistance <= ceilingDistance) ? floorKey : ceilingKey;
+
+        return brightnessMap.get(closestBrightness).first();
     }
 
 
@@ -106,6 +112,29 @@ public class SubImgCharMatcher {
                 this.brightnessMap.remove(brightnessC);
             }
         }
+    }
+
+    /**
+     * gets every char added to the matcher's set.
+     * Note that the charset returned can be iterated on in ASCII order
+     * @return A TreeSet holding each character added to the matcher
+     */
+    public TreeSet<Character> getChars() {
+        TreeSet<Character> charSet = new TreeSet<>();
+        for (Double key : brightnessMap.keySet()){
+            charSet.addAll(brightnessMap.get(key));
+        }
+        return charSet;
+    }
+
+    /**
+     * setter for the reverse parameter.
+     * If reverse is set to true, the brightness of each subimage will be flipped and clipped with the max
+     * and min values.
+     * @param reverse new reverse value
+     */
+    public void setReverse(boolean reverse) {
+        this.reverse = reverse;
     }
 
     /**

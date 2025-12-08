@@ -1,3 +1,7 @@
+package image;
+
+import java.awt.*;
+
 /*
 A class representing a collection of image processing algorithms.
  */
@@ -51,12 +55,6 @@ public class ImageProcessing {
         return new Image(newPixelArray, newWidth, newHeight);
     }
 
-    /**
-     * Divides the image into square sub-images based on the resolution.
-     * @param image The (padded) image to divide.
-     * @param resolution The number of sub-images per row.
-     * @return An array of Image objects representing the sub-squares.
-     */
 
     /**
      * Divides the image into square sub-images based on the resolution.
