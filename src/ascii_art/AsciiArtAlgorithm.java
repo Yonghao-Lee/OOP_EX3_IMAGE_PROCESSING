@@ -58,7 +58,6 @@ public class AsciiArtAlgorithm {
             }
 
         } else {
-            // Full Calculation
 
             // Divide the image into sub-images
             Image[][] subImages = ImageProcessing.divideImage(paddedImage, resolution);

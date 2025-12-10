@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * Responsible for the interface between the user and the asciiArt API through the command line.
- * Utilizes java's exception system to handle invalid commands and illegal formatting of commands. in case
+ * Uses java's exception system to handle invalid commands and illegal formatting of commands. in case
  * of such an invalid input, prints a relevant message back to the console.
  */
 public class Shell{
