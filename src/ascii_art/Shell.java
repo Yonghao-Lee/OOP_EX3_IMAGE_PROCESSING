@@ -180,6 +180,11 @@ public class Shell{
             return;
         }
 
+        if (arg2.equals("space")){
+            matcher.removeChar(' ');
+            return;
+        }
+
         String[] removeRangeStr = arg2.split("-");
         if (removeRangeStr.length != 2){
             throw new CommandFormatException("Did not remove due to incorrect format.");
@@ -209,6 +214,12 @@ public class Shell{
             addChar(arg2.charAt(0));
             return;
         }
+
+        if (arg2.equals("space")){
+            addChar(' ');
+            return;
+        }
+
 
         String[] addRangeStr = arg2.split("-");
         if (addRangeStr.length != 2){
