@@ -1,3 +1,7 @@
+package image;
+
+import java.awt.*;
+
 /**
  * A utility class providing static methods for image processing operations.
  * This includes padding images to power-of-2 dimensions, dividing images into sub-squares,
